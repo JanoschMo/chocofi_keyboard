@@ -7,33 +7,42 @@
 
 
 #define BASE 0
-#define NUM 1
-#define NAV 2
+#define NUM  1
+#define NAV  2
 #define MISC 3
+#define RES  4
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-     /*
-      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │
+[BASE] = LAYOUT_split_3x5_3(
+     /* ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │ Q │ W │ E │ R │ T │       │ Z │ U │ I │ O │ P │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │ A │ S │ D │ F │ G │       │ H │ J │ K │ L │ ; │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ Z │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │
+      * │ Y │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-      *           ┌───┐                   ┌───┐
-      *           │GUI├───┐           ┌───┤Alt│
-      *           └───┤Bsp├───┐   ┌───┤Ent├───┘
-      *               └───┤   │   │   ├───┘
-      *                   └───┘   └───┘
+      *           ┌───┬───┬───┐   ┌───┬───┬───┐
+      *           │L4 │L2 │Spe│   │Etr│L1 │L3 │
+      *           └───┴───┴───┘   └───┴───┴───┘ 
       */
-[BASE] = LAYOUT_split_3x5_3(
   CH_Q,     CH_W,     CH_E,    CH_R,    CH_T,            CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,
   CH_A,     CH_S,     CH_D,    CH_F,    CH_G,            CH_H,    CH_J,    CH_K,    CH_L,    KC_SPC,
   CH_Y,     CH_X,     CH_C,    CH_V,    CH_B,            CH_N,    CH_M,    CH_COMM, CH_DOT,  CH_MINS,
-                      KC_LCTL, MO(NAV), MO(NUM),      	 KC_LGUI, KC_LSFT, KC_LALT
+                      MO(NAV), MO(NUM), KC_SPACE,      	 KC_ENTER,MO(MISC),MO(RES)
 ),
 
 [NUM] = LAYOUT_split_3x5_3(
+     /* ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┬───┬───┐   ┌───┬───┬───┐
+      *           │   │   │   │   │   │   │   │
+      *           └───┴───┴───┘   └───┴───┴───┘ 
+      */
   CH_EXLM,  CH_QUES,  CH_SECT, CH_DLR,  CH_HASH,         CH_PLUS, CH_7,    CH_8,    CH_9,    CH_0,
   CH_CIRC,  CH_QUOT,  CH_DQUO, CH_GRV,  CH_AMPR,         CH_ASTR, CH_4,    CH_5,    CH_6,    CH_EQL,
   CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,         CH_PERC, CH_1,    CH_2,    CH_3,    KC_TAB,
@@ -41,22 +50,63 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [NAV] = LAYOUT_split_3x5_3(
-  KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,  DE_LBRC,  DE_RBRC,  KC_AUDIO_VOL_UP,  KC_HOME,      KC_PGDN,    KC_PGUP,  KC_END,   DE_TILD,
-  KC_ESC,   DE_LABK,  DE_LPRN,  DE_RPRN,  DE_RABK,                          KC_LEFT,      KC_DOWN,    KC_UP,    KC_RIGHT, KC_ENT,
-  KC_BSPC,  KC_DEL,   DE_LCBR,  DE_RCBR,  KC_PSCR,                        	_______,  DE_ADIA,  DE_ODIA,  DE_UDIA,  DE_SS,
-                        _______, _______, _______,                    _______,  MO(MISC), _______
+     /* ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┬───┬───┐   ┌───┬───┬───┐
+      *           │   │   │   │   │   │   │   │
+      *           └───┴───┴───┘   └───┴───┴───┘ 
+      */
+  KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,  DE_LBRC,  DE_RBRC,      KC_AUDIO_VOL_UP,  KC_HOME, KC_PGDN,  KC_PGUP,  KC_END,   DE_TILD,
+  KC_ESC,   DE_LABK,  DE_LPRN,  DE_RPRN,  DE_RABK,            KC_LEFT,  KC_DOWN, KC_UP,   KC_RIGHT, KC_ENT,
+  KC_BSPC,  KC_DEL,   DE_LCBR,  DE_RCBR,  KC_PSCR,            _______,  DE_ADIA, DE_ODIA, DE_UDIA,  DE_SS,
+                        _______, _______, _______,            _______,  MO(MISC), _______
 ),
 
 [MISC] = LAYOUT_split_3x5_3(
+     /* ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┬───┬───┐   ┌───┬───┬───┐
+      *           │   │   │   │   │   │   │   │
+      *           └───┴───┴───┘   └───┴───┴───┘ 
+      */
   _______,  _______,  _______,  _______,  _______,       _______,   KC_F7,    KC_F8,    KC_F9,   KC_F10,
   _______,  _______,  _______,  _______,  _______,       _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,
   QK_BOOT,  _______,  _______,  _______,  _______,       _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,
+                      _______,  _______,  _______,       _______,  _______,   _______
+),
+
+[RES] = LAYOUT_split_3x5_3(
+     /* ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │   │   │   │   │   │       │   │   │   │   │   │
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┬───┬───┐   ┌───┬───┬───┐
+      *           │   │   │   │   │   │   │   │
+      *           └───┴───┴───┘   └───┴───┴───┘ 
+      */
+  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
+  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
+  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
                       _______,  _______,  _______,       _______,  _______,   _______
 )};
 
 
 
-/* For reference */
+
+/* For reference 
 
 
 #define QMK_SWISS_DE_KEYCODES_VERSION "0.0.1"
@@ -152,3 +202,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define CH_LCBR ALGR(CH_ADIA) // {
 #define CH_RCBR ALGR(CH_DLR)  // }
 #define CH_BSLS ALGR(CH_LABK) // (backslash)
+/* 
