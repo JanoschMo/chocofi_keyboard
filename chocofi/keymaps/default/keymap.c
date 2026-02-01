@@ -44,29 +44,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                              │Esc│Etr│Tab│      │Bsp│Spc│Del│
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  CH_Q,     CH_W,     CH_E,    CH_R,    CH_T,            CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,
-  HOME_A,   HOME_S,   HOME_D,  HOME_F,  CH_G,            CH_H,    HOME_J,  HOME_K,  HOME_L,  H_MINS,
-  CH_Y,     CH_X,     CH_C,    CH_V,    CH_B,            CH_N,    CH_M,    CH_COMM, CH_DOT,  CH_SLSH,
-                      L_ESC, KC_ENT,  L_TAB,      	 L_BKSP,  KC_SPC,  L_DEL
+    CH_Q,     CH_W,     CH_E,    CH_R,    CH_T,          CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,
+  HOME_A,   HOME_S,   HOME_D,  HOME_F,    CH_G,          CH_H,    HOME_J,  HOME_K,  HOME_L,  H_MINS,
+    CH_Y,     CH_X,     CH_C,    CH_V,    CH_B,          CH_N,    CH_M,    CH_COMM, CH_DOT,  CH_SLSH,
+                       L_ESC,  KC_ENT,   L_TAB,          L_BKSP,  KC_SPC,  L_DEL
 
 ),
 
 [NUM] = LAYOUT_split_3x5_3(
      /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
-      *                    │   │   │   │   │   │          │   │   │   │   │   │
+      *                    │   │   │   │   │ ä │          │ * │ 7 │ 8 │ 9 │ + │
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
-      *                    │   │   │   │   │   │          │   │   │   │   │   │
+      *                    │CMD│ALT│SHT│CTR│ ö │          │ = │ 4 │ 5 │ 6 │ 0 │
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
-      *                    │   │   │   │   │   │          │   │   │   │   │   │
+      *                    │   │   │   │   │ ü │          │ / │ 1 │ 2 │ 3 │ - │
       *                    └───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┘
       *                              ┌───┬───┬───┐      ┌───┬───┬───┐
       *                              │   │   │   │      │   │   │   │
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  CH_EXLM,  CH_QUES,  CH_SECT, CH_DLR,  CH_HASH,         CH_PLUS, CH_7,    CH_8,    CH_9,    CH_0,
-  CH_CIRC,  CH_QUOT,  CH_DQUO, CH_GRV,  CH_AMPR,         CH_ASTR, CH_4,    CH_5,    CH_6,    CH_EQL,
-  CH_SLSH,  CH_PIPE,  CH_BSLS, CH_AT,   CH_EURO,         CH_PERC, CH_1,    CH_2,    CH_3,    KC_TAB,
-                      _______, _______, _______,         _______, _______, _______
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    CH_ADIA,       KC_PAST,  KC_7,     KC_8,     KC_9,     KC_PPLS,    
+  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  CH_ODIA,       KC_EQL,   KC_4,     KC_5,     KC_6,     KC_0,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    CH_UDIA,       KC_SLSH,  KC_1,     KC_2,     KC_3,     KC_PMNS,    
+                      KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO 
 ),
 
 [NAV] = LAYOUT_split_3x5_3(
@@ -81,10 +81,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                              │   │   │   │      │   │   │   │
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,  DE_LBRC,  DE_RBRC,      KC_AUDIO_VOL_UP,  KC_HOME, KC_PGDN,  KC_PGUP,  KC_END,   DE_TILD,
-  KC_ESC,   DE_LABK,  DE_LPRN,  DE_RPRN,  DE_RABK,            KC_LEFT,  KC_DOWN, KC_UP,   KC_RIGHT, KC_ENT,
-  KC_BSPC,  KC_DEL,   DE_LCBR,  DE_RCBR,  KC_PSCR,            _______,  DE_ADIA, DE_ODIA, DE_UDIA,  DE_SS,
-                        _______, _______, _______,            _______,  MO(MISC), _______
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+                      KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO 
 ),
 
 [MISC] = LAYOUT_split_3x5_3(
@@ -99,10 +99,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                              │   │   │   │      │   │   │   │
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  _______,  _______,  _______,  _______,  _______,       _______,   KC_F7,    KC_F8,    KC_F9,   KC_F10,
-  _______,  _______,  _______,  _______,  _______,       _______,   KC_F4,    KC_F5,    KC_F6,   KC_F11,
-  QK_BOOT,  _______,  _______,  _______,  _______,       _______,   KC_F1,    KC_F2,    KC_F3,   KC_F12,
-                      _______,  _______,  _______,       _______,  _______,   _______
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+                      KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO 
 ),
 
 [RES] = LAYOUT_split_3x5_3(
@@ -117,10 +117,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                              │   │   │   │      │   │   │   │
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
-  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
-  _______,  _______,  _______,  _______,  _______,       _______,  _______,   _______,   _______,   _______,
-                      _______,  _______,  _______,       _______,  _______,   _______
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+                      KC_NO,    KC_NO,    KC_NO,         KC_NO,    KC_NO,    KC_NO 
 )};
 /* clang-format on */
 
