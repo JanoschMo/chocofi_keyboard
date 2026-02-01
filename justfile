@@ -20,6 +20,7 @@ setup: reset
     just build
 # build the keyboard firmware
 build:
+    cp chocofi {{QMK}}/keyboards -fr
     qmk compile -kb chocofi -km default  -e CONVERT_TO=rp2040_ce --compiledb
     mv {{QMK}}/*.uf2 .
     mv {{QMK}}/compile_commands.json .
@@ -29,9 +30,7 @@ flash: build
     sudo ./flash_keyboard.sh
 
 # clean everything
-clean:
-    cp {{QMK}}/keyboards/chocofi/* chocofi -fr
-    just reset
+clean: reset
     rm -fr *.uf2
     rm compile_commands.json
     
