@@ -17,11 +17,12 @@ reset:
 # copy the keyboard firmware into qmk
 setup: reset
     cp chocofi {{QMK}}/keyboards -fr
-
+    just build
 # build the keyboard firmware
 build:
-    qmk compile -kb chocofi -km default  -e CONVERT_TO=rp2040_ce
+    qmk compile -kb chocofi -km default  -e CONVERT_TO=rp2040_ce --compiledb
     mv {{QMK}}/*.uf2 .
+    mv {{QMK}}/compile_commands.json .
 
 # flash and build the firmware
 flash: build
@@ -32,6 +33,7 @@ clean:
     cp {{QMK}}/keyboards/chocofi/* chocofi -fr
     just reset
     rm -fr *.uf2
+    rm compile_commands.json
     
     
     
