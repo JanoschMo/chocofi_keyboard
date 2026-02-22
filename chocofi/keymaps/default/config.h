@@ -1,14 +1,15 @@
 // Copyright 2025 Janosch Morf
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#define MASTER_RIGHT
+// #define MASTER_RIGHT
+#define EE_HANDS
 
 // #define USE_SERIAL
 // #define SOFT_SERIAL_PIN GP1
 
 /* setting for Home-Row-Mods HMO */
 /* General time to hold instead of tap */
-#define TAPPING_TERM 200
+#define TAPPING_TERM 240
 /* case ABBA should also trigger the hold but not rolling (ABAB) */
 #define PERMISSIVE_HOLD
 /* 2nd tab delay, to auto tap button instead of hold */

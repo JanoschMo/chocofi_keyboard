@@ -34,5 +34,9 @@ clean: reset
     rm -fr *.uf2
     rm compile_commands.json
     
-    
-    
+#copy the keyboard layout to home
+# Extract only comments from the fixed keymap.c into ~/keys
+keys:
+    sed -n '/\/\*/,/\*\//p' \
+    ~/git-repos/privat/chocofi_keyboard/chocofi/keymaps/default/keymap.c \
+    > ~/keys    
