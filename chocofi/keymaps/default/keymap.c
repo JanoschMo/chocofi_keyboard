@@ -19,10 +19,9 @@
 #define L_BKSP LT(SYM, KC_BACKSPACE)
 #define L_ESC LT(NAV, KC_ESCAPE)
 #define L_DEL LT(MISC, KC_DELETE)
-/*
- * ┌───┬───┬───┐      ┌───┬───┬───┐
- * │NAV│   │NUM│      │SYM│   │MIC│
- * └───┴───┴───┘      └───┴───┴───┘
+/*                                   ┌───┬───┬───┐      ┌───┬───┬───┐
+ *                                   │NAV│NUM│   │      │   │SYM│MIC│
+ *                                   └───┴───┴───┘      └───┴───┴───┘
  */
 // Left-hand HRM
 #define HOME_A LGUI_T(CH_A)
@@ -39,7 +38,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* clang-format off */
 [BASE] = LAYOUT_split_3x5_3(
-     /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
+     /*  BASE              ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
       *                    │ Q │ W │ E │ R │ T │          │ Z │ U │ I │ O │ P │
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
       *                    │ A │ S │ D │ F │ G │          │ H │ J │ K │ L │ - │
@@ -47,17 +46,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                    │ Y │ X │ C │ V │ B │          │ N │ M │ , │ . │ / │
       *                    └───┴───┴───┴───┴───┘          └───┴───┴───┴───┴───┘
       *                              ┌───┬───┬───┐      ┌───┬───┬───┐
-      *                              │Esc│Etr│Tab│      │Bsp│Spc│Del│
+      *                              │Esc│Tab│Ent│      │Spc│Bsp│Del│
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
     CH_Q,     CH_W,     CH_E,    CH_R,    CH_T,          CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,
   HOME_A,   HOME_S,   HOME_D,  HOME_F,    CH_G,          CH_H,    HOME_J,  HOME_K,  HOME_L,  H_MINS,
     CH_Y,     CH_X,     CH_C,    CH_V,    CH_B,          CH_N,    CH_M,    CH_COMM, CH_DOT,  CH_SLSH,
-                       L_DEL,  KC_ENT,   L_TAB,          L_BKSP,  KC_SPC,  L_ESC
+                       L_ESC,  L_TAB,   KC_ENT,          KC_SPC   ,L_BKSP,  L_DEL
 ),
 
 [SYM] = LAYOUT_split_3x5_3(
-     /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
+     /*  SYM               ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
       *                    │ _ │ @ │ # │ $ │ % │          │ } │ { │ + │ - │ * │
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
       *                    │ ^ │ & │ ? │ ! │ ~ │          │ ) │ ( │ / │ | │ \ │
@@ -75,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 	
 [NUM] = LAYOUT_split_3x5_3(
-     /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
+     /*  NUM               ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
       *                    │   │   │   │   │ ä │          │ * │ 7 │ 8 │ 9 │ + │
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
       *                    │CMD│ALT│SHT│CTR│ ö │          │ = │ 4 │ 5 │ 6 │ 0 │
@@ -93,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [NAV] = LAYOUT_split_3x5_3(
-     /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
+     /*  NAV               ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
       *                    │   │V- │V0 │V+ │   │          │HOM│PUP│ ^ │PDW│END│
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
       *                    │CMD│ALT│SHT│CTR│   │          │   │ < │ v │ > │   │
@@ -111,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [MISC] = LAYOUT_split_3x5_3(
-     /*                    ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
+     /*  MISC              ┌───┬───┬───┬───┬───┐          ┌───┬───┬───┬───┬───┐
       *                    │F1 │F2 │F3 │F4 │F5 │          │   │FAC│   │   │BAS│
       *                    ├───┼───┼───┼───┼───┤          ├───┼───┼───┼───┼───┤
       *                    │F6 │F7 │F8 │F9 │F10│          │   │   │   │   │   │
