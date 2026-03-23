@@ -103,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                              │   │   │   │      │   │   │   │
       *                              └───┴───┴───┘      └───┴───┴───┘
       */
-  KC_NO,    KC_VOLD,  KC_MUTE,  KC_VOLU,  KC_NO,         KC_HOME,  KC_PGUP,  KC_UP,    KC_PGDN,  KC_END,    
-  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_NO,         KC_NO,    KC_LEFT,  KC_DOWN,  KC_RIGHT, KC_NO,    
-  KC_NO,    KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_NO,         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+  KC_NO,    KC_VOLD,  KC_MUTE,  KC_VOLU,  KC_NO,         KC_NO,   KC_HOME, KC_PGUP, KC_PGDN,  KC_END,    
+  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_NO,         KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,    
+  KC_NO,    KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_NO,         KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    
         	    _______,  _______,  _______,       _______,  _______,  _______ 
 ),
 
