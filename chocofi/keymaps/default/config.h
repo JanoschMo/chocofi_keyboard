@@ -20,3 +20,10 @@
 // There is Retro tapping, whatch taps a hold of nop other key was pressed
 /* send the mods earlier and maybe revoke them / good fore the mouse */
 #define SPECULATIVE_HOLD
+
+/* if both left and right shift are presse, activate caps word */
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+/* to invert the shift with shift */
+#define CAPS_WORD_INVERT_ON_SHIFT
+/* define idle timeout in ms */
+#define CAPS_WORD_IDLE_TIMEOUT 4000
